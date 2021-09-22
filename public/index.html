@@ -1,0 +1,2117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube</title>
+    <link rel="icon" href="images/logo-icon.png">
+    <link rel="stylesheet" href="tailwind-styles.css">
+    <!-- Google icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined">
+
+</head>
+
+<body class="text-gray-600 text-14r">
+    <!-- header -->
+    <header class="w-full fixed z-30 bg-white">
+        <!-- checkbox input, overlays & modal content -->
+            <!-- aside navbar -->
+            <input class="hidden" type="checkbox" name="" id="hamburger">
+            <label for="hamburger">
+                <div class="aside-navbar__overlay transition duration-1000 ease-in-out"></div>
+            </label>
+
+            <!-- header: voice search -->
+            <input class="hidden" type="checkbox" name="" id="voice-search">
+            <label for="voice-search">
+                <div class="header__navbar--voice-search-overlay transition duration-500 ease-in-out"></div>
+            </label>
+            <div class="header__navbar--voice-search hidden flex-col bg-white fixed z-40 top-5 left-1/2 transform -translate-x-1/2 pl-12 transition duration-500 ease-in-out" style="height: 42rem; width: 60rem;">
+                <div class="flex justify-between w-full">
+                    <h3 class="text-gray-700 text-4xl pt-20 pb-10">Search with your voice</h3>
+                    <a href="#" class="h-16 w-16 rounded-full p-3 m-5 focus:bg-gray-200 flex items-center justify-center">
+                        <label for="voice-search" class="flex items-center cursor-pointer">
+                            <i class="material-icons">close</i>
+                        </label>
+                    </a>
+                </div>
+                <div>
+                    <span>To search by voice, go to your browser settings and allow access to microphone</span>
+                </div>
+                <div class="fixed left-0 bottom-14 flex justify-center w-full">
+                    <a href="#" class="bg-gray-200 focus:bg-gray-300 p-7 rounded-full">
+                        <svg class="w-12 h-12" fill="currentColor" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- search on tablet -->
+            <input class="hidden" type="checkbox" name="" id="tablet-search">
+            <label for="tablet-search">
+                <div class="header__navbar--tablet-search-overlay"></div>
+            </label>
+            <div class="header__navbar--tablet-search hidden" style="height: 4.8rem;">
+                <label for="tablet-search" class="p-5">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                </label>
+                <input type="text" placeholder="Search YouTube" class="flex-grow h-3/4 text-16r pl-4 border-b border-gray-600 text-gray-700 focus:border-black">
+                <a href="#">
+                    <i class="material-icons p-5">search</i>
+                </a>
+            </div>
+
+            <!-- account button on tablet -->
+            <input class="hidden" type="checkbox" name="" id="tablet-account">
+            <div class="header__navbar--tablet-account hidden">
+                <div class="bg-white flex items-center border-b shadow-sm" style="height: 5.2rem;">
+                    <label for="tablet-account">
+                        <i class="material-icons p-5 mr-8">close</i>
+                    </label>
+                    <span>Account</span>
+                </div>
+
+                <div>
+                    <div class="py-3 border-b">
+                        <div class="py-3 flex items-center">
+                            <i class="material-icons px-5 mr-8">switch_account</i>
+                            <span>Sign in</span>
+                        </div>
+                    </div>
+                    <div class="py-3">
+                        <div class="py-3 flex items-center">
+                            <i class="material-icons px-5 mr-8">settings</i>
+                            <span>Settings</span>
+                        </div>
+                        <div class="py-3 flex items-center">
+                            <i class="material-icons px-5 mr-8">admin_panel_settings</i>
+                            <span>Your data in YouTube</span>
+                        </div>
+                        <div class="py-3 flex items-center">
+                            <i class="material-icons px-5 mr-8">feedback</i>
+                            <span>Feedback</span>
+                        </div>
+                        <div class="py-3 flex items-center">
+                            <i class="material-icons px-5 mr-8">help_outline</i>
+                            <span>Help</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-center items-center text-12r font-bold absolute bottom-6 w-screen">
+                    <a href="#">Privicy Policy</a>
+                    <i class="material-icons ml-3 mr-2" style="font-size: 0.5rem;">lens</i>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+
+            <!-- YouTube app list -->
+            <input class="hidden" type="checkbox" name="" id="apps">
+            <label for="apps">
+                <div class="header__navbar--apps-overlay"></div>
+            </label>
+
+            <!-- YouTube settings -->
+            <input class="hidden" type="checkbox" name="" id="settings">
+            <label for="settings">
+                <div class="header__navbar--settings-overlay"></div>
+            </label>
+
+        <!-- header - above: navbar -->
+        <div class="header__navbar w-full border-b shadow-sm lg:shadow-none flex items-center justify-between lg:px-5 border-gray-300">
+            <!-- header: hamburger button & logo  -->
+            <div class="flex items-center">
+                <!-- aside navbar - hamburger button -->
+                <a href="#" class="hidden lg:flex lg:items-center h-16 w-16 rounded-full ml-1 p-3 focus:bg-gray-200 items-center justify-center transition ease-linear duration-100">
+                    <label for="hamburger" class="flex items-center cursor-pointer">
+                        <i class="material-icons">menu</i>
+                    </label>
+                </a> 
+
+                <!-- aside navbar - content -->
+                <div class="aside-navbar fixed -left-full top-0 bg-white z-40 transition duration-1000 ease-in-out" style="width: 24rem; height: 100vh;">
+                    <div class="flex items-center pl-7" style="height: 5.6rem;">
+                        <a href="#" class="btn-rounded-full">
+                            <label for="hamburger" class="flex items-center justify-center cursor-pointer">
+                                <i class="material-icons">menu</i>
+                            </label>
+                        </a>
+            
+                        <a class="flex items-center relative p-4" href="#">
+                            <img class="inline-block" src="images/logo.png" alt="logo" width="90px">
+                            <span class="absolute -right-3 top-1 text-base">VN</span>
+                        </a>
+                    </div>
+            
+                    <div class="aside-navbar__container overflow-y-auto" style="height: calc(100vh - 5.6rem);">    
+                        <ul class="aside-navbar__list">
+                            <li>
+                                <a href="#" class="aside-navbar__item active"><i class="material-icons mr-8">home</i>Home</a>
+                            </li>
+                            <li class="navbar-item">
+                                <a href="#" class="aside-navbar__item"><i class="material-icons mr-8">explore</i>Explore</a>
+                            </li>
+                            <li class="navbar-item">
+                                <a href="#" class="aside-navbar__item"><i class="material-icons mr-8">subscriptions</i>Subscriptions</a>
+                            </li>
+                        </ul>
+            
+                        <ul class="aside-navbar__list">
+                            <li class="navbar-item">
+                                <a href="#" class="aside-navbar__item"><i class="material-icons mr-8">video_library</i>Library</a>
+                            </li>
+                            <li class="navbar-item">
+                                <a href="#" class="aside-navbar__item"><i class="material-icons mr-8">history</i>History</a>
+                            </li>
+                        </ul>
+                        
+                        <div class="px-12 py-6 border-b">
+                            <p>Sign in to like videos, comment, and subscribe.</p>
+                            <a class="btn-sign-in mt-5">
+                                <i class="material-icons mr-3">account_circle</i>
+                                <span>SIGN IN</span>
+                            </a>
+                        </div>
+            
+                        <ul class="aside-navbar__list">
+                            <h3 class="aside-navbar__heading">BEST OF YOUTUBE</h3>
+                            <li class="navbar-item">
+                                <a href="#" class="aside-navbar__item"><i class="material-icons mr-8">library_music</i>Music</a>
+                            </li>
+                            <li class="navbar-item">
+                                <a href="#" class="aside-navbar__item"><i class="material-icons mr-8">sports_soccer</i>Sports</a>
+                            </li>
+                            <li class="navbar-item">
+                                <a href="#" class="aside-navbar__item"><i class="material-icons mr-8">sports_esports</i>Gaming</a>
+                            </li>
+                            <li class="navbar-item">
+                                <a href="#" class="aside-navbar__item"><i class="material-icons mr-8">feed</i>News</a>
+                            </li>
+                            <li class="navbar-item">
+                                <a href="#" class="aside-navbar__item"><i class="material-icons mr-8">live_tv</i>Live</a>
+                            </li>
+                            <li class="navbar-item">
+                                <a href="#" class="aside-navbar__item"><i class="material-icons mr-8">videocam</i>360° Video</a>
+                            </li>
+                        </ul>
+            
+                        <ul class="aside-navbar__list">
+                            <li class="navbar-item">
+                                <a href="#" class="aside-navbar__item"><i class="material-icons mr-8">add_circle</i>Browse Channels</a>
+                            </li>
+                        </ul>
+                        
+                        <ul class="aside-navbar__list">
+                            <h3 class="aside-navbar__heading">MORE FROM YOUTUBE</h3>
+                            <li class="navbar-item">
+                                <a href="#" class="aside-navbar__item"><i class="material-icons mr-8">stream</i>Live</a>
+                            </li>
+                        </ul>
+            
+                        <ul class="aside-navbar__list">
+                            <li class="navbar-item">
+                                <a href="#" class="aside-navbar__item"><i class="material-icons mr-8">settings</i>Settings</a>
+                            </li>
+                            <li class="navbar-item">
+                                <a href="#" class="aside-navbar__item"><i class="material-icons mr-8">report</i>Report history</a>
+                            </li>
+                            <li class="navbar-item">
+                                <a href="#" class="aside-navbar__item"><i class="material-icons mr-8">help</i>Help</a>
+                            </li>
+                            <li class="navbar-item">
+                                <a href="#" class="aside-navbar__item"><i class="material-icons mr-8">feedback</i>Send feedback</a>
+                            </li>
+                        </ul>
+            
+                        <ul class="flex flex-wrap px-9 pt-7 text-13r font-bold">
+                            <li>
+                                <a href="#" class="mr-3">About</a>
+                            </li>
+                            <li>
+                                <a href="#" class="mr-3">Press</a>
+                            </li>
+                            <li>
+                                <a href="#" class="mr-3">Copyright</a>
+                            </li>
+                            <li>
+                                <a href="#" class="mr-3">Contact us</a>
+                            </li>
+                            <li>
+                                <a href="#" class="mr-3">Creators</a>
+                            </li>
+                            <li>
+                                <a href="#" class="mr-3">Advertise</a>
+                            </li>
+                            <li>
+                                <a href="#" class="mr-3">Developers</a>
+                            </li>
+                        </ul>
+            
+                        <ul class="flex flex-wrap px-9 pt-7 text-13r font-bold">
+                            <li>
+                                <a href="#" class="mr-3">Terms</a>
+                            </li>
+                            <li>
+                                <a href="#" class="mr-3">Privacy</a>
+                            </li>
+                            <li>
+                                <a href="#" class="mr-3">Policy & Safety</a>
+                            </li>
+                            <li>
+                                <a href="#" class="mr-3">How YouTube works</a>
+                            </li>
+                            <li>
+                                <a href="#" class="mr-3">Test new features</a>
+                            </li>
+                        </ul>
+            
+                        <div class="text-12r px-9 py-8">
+                            <span>© 2021 Google LLC</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- logo -->
+                <a class="flex items-center relative p-4" href="#">
+                    <img class="inline-block" src="images/logo.png" alt="logo" width="90px">
+                    <span class="absolute -right-3 top-1 hidden lg:inline-block text-base">VN</span>
+                </a>
+            </div>
+
+            <!-- header: tablet & mobile search -->
+            <div class="lg:hidden">
+                <label for="tablet-search">
+                    <i class="material-icons p-4">search</i>
+                </label>
+
+                <label for="tablet-account">
+                    <i class="material-icons p-4">account_circle</i>
+                </label>
+            </div>
+
+            <!-- header: laptop search -->
+            <div class="hidden lg:flex lg:items-center" style="height: 3.2rem; width: 73rem;">
+                <input type="text" placeholder="Search" class="h-full flex-grow text-16r pl-4 ml-16 rounded-l rounded-r-none border focus:border-blue-500 focus:shadow-inner">
+                <a href="#" role="button" class="border border-l-0 rounded-l-none rounded-r h-full px-4 py-0 mr-3 flex items-center justify-center bg-gray-50 cursor-pointer relative group" title="Search" style="width: 6.5rem;">
+                    <i class="material-icons">search</i>
+                    <div class="tooltip -bottom-24">
+                        Search
+                    </div>
+                </a>
+
+                <!-- voice search - button -->
+                <a href="#" class="btn-rounded-full bg-gray-50 group relative">
+                    <label for="voice-search" class="flex items-center justify-center cursor-pointer">
+                        <i class="material-icons">mic</i>
+                        <div class="tooltip -bottom-24">
+                            Search with your voice
+                        </div>
+                    </label>
+                </a>
+            </div>
+
+            <!-- header: right -->
+            <div class="hidden lg:flex justify-end items-center">
+                        
+                <!-- YouTube app list -->
+                <div class="relative">
+                    <a href="#" class="btn-rounded-full mr-4 group relative">
+                        <label for="apps" class="flex items-center justify-center cursor-pointer">
+                            <i class="material-icons">apps</i>
+                        </label>
+                        <div class="tooltip -bottom-24 ">
+                            YouTube apps
+                        </div>
+                    </a>
+                      
+                    <ul class="header__navbar--youtube-apps border-l hidden absolute top-full left-0 z-20 bg-white" style="width: 22rem;">
+                        <li class="py-4 border-b">
+                            <a class="px-5 py-3 flex items-center hover:bg-gray-100 focus:bg-gray-200" href="#">
+                                <i class="material-icons mr-4 text-red-500">smart_display</i>
+                                YouTube TV
+                            </a>
+                        </li>
+                        <li class="py-4 border-b">
+                            <a class="px-5 py-3 flex items-center hover:bg-gray-100 focus:bg-gray-200" href="#">
+                                <i class="material-icons mr-4 text-red-500">smart_display</i>
+                                YouTube Music
+                            </a>
+                            <a class="px-5 py-3 flex items-center hover:bg-gray-100 focus:bg-gray-200" href="#">
+                                <i class="material-icons mr-4 text-red-500">smart_display</i>
+                                YouTube Kids
+                            </a>
+                        </li>
+                        <li class="py-4 border-b">
+                            <a class="px-5 py-3 flex items-center hover:bg-gray-100 focus:bg-gray-200" href="#">
+                                <i class="material-icons mr-4 text-red-500">smart_display</i>
+                                Creator Academy
+                            </a>
+                            <a class="px-5 py-3 flex items-center hover:bg-gray-100 focus:bg-gray-200" href="#">
+                                <i class="material-icons mr-4 text-red-500">smart_display</i>
+                                YouTube for Artists
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Setting list -->
+                <div class="relative">
+                    <a href="#" class="btn-rounded-full mr-4 group relative">
+                        <label for="settings" class="flex items-center justify-center cursor-pointer">
+                            <i class="material-icons">more_vert</i>
+                        </label>
+                        <div class="tooltip -bottom-24 ">
+                            Settings
+                        </div>
+                    </a>
+    
+                    <ul class="header__navbar--settings hidden absolute border-l border-r bg-white top-full right-0 z-20" style="width: 30rem;">
+                        <li class="py-4 border-b">
+                            <a class="px-5 py-3 flex items-center hover:bg-gray-100 focus:bg-gray-200" href="#">
+                                <i class="material-icons mr-4">verified_user</i>
+                                Appearance: Device theme
+                                <i class="material-icons ml-auto">navigate_next</i>
+                            </a>
+                            <a class="px-5 py-3 flex items-center hover:bg-gray-100 focus:bg-gray-200" href="#">
+                                <i class="material-icons mr-4">pets</i>
+                                Language: English
+                                <i class="material-icons ml-auto">navigate_next</i>
+                            </a>
+                            <a class="px-5 py-3 flex items-center hover:bg-gray-100 focus:bg-gray-200" href="#">
+                                <i class="material-icons mr-4">pending_actions</i>
+                                Location: Vietnam
+                                <i class="material-icons ml-auto">navigate_next</i>
+                            </a>
+                            <a class="px-5 py-3 flex items-center hover:bg-gray-100 focus:bg-gray-200" href="#">
+                                <i class="material-icons mr-4">settings</i>
+                                Settings
+                            </a>
+                            <a class="px-5 py-3 flex items-center hover:bg-gray-100 focus:bg-gray-200" href="#">
+                                <i class="material-icons mr-4">account_circle</i>
+                                Your data in YouTube
+                            </a>
+                            <a class="px-5 py-3 flex items-center hover:bg-gray-100 focus:bg-gray-200" href="#">
+                                <i class="material-icons mr-4">visibility</i>
+                                Help
+                            </a>
+                            <a class="px-5 py-3 flex items-center hover:bg-gray-100 focus:bg-gray-200" href="#">
+                                <i class="material-icons mr-4">schedule</i>
+                                Send feedback
+                            </a>
+                            <a class="px-5 py-3 flex items-center hover:bg-gray-100 focus:bg-gray-200" href="#">
+                                <i class="material-icons mr-4">dashboard</i>
+                                Keyboard shortcuts
+                            </a>
+                        </li>
+                        <li class="py-4 border-b">
+                            <a class="px-5 py-3 flex items-center hover:bg-gray-100 focus:bg-gray-200" href="#">
+                                Restricted Mode: Off
+                                <i class="material-icons ml-auto">navigate_next</i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- sign-in button -->
+                <a class="btn-sign-in">
+                    <i class="material-icons mr-3">account_circle</i>
+                    <span>SIGN IN</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- header - below: playlist -->
+        <div class="header__playlist border-b border-gray-300 fixed bg-white">
+            <ul class="header__playlist-container flex items-center overflow-x-auto overflow-y-hidden h-full">
+                <li class="absolute hidden lg:flex items-center group">
+                    <span class="flex justify-center items-center bg-white" style="width: 5.6rem; height: 5.4rem;">
+                        <a href="#" class="flex justify-center items-center rounded-full focus:bg-gray-200 p-2">
+                            <i class="material-icons">chevron_left</i>
+                        </a>
+                        <div class="tooltip -bottom-20">
+                            Previous
+                        </div>
+                    </span>
+                    <span class="bg-gradient-to-r from-white via-white to-transparent" style="height: 5.4rem; width: 5rem;"></span>
+                </li>
+                <li><a href="#" class="btn-playlist active ml-6 lg:ml-9" style="height: 3.2rem;">All</a></li>
+                <li><a href="#" class="btn-playlist" style="height: 3.2rem;">Your music</a></li>
+                <li><a href="#" class="btn-playlist" style="height: 3.2rem;">Chill-out music</a></li>
+                <li><a href="#" class="btn-playlist" style="height: 3.2rem;">Music</a></li>
+                <li><a href="#" class="btn-playlist" style="height: 3.2rem;">Martial Arts Movies</a></li>
+                <li><a href="#" class="btn-playlist" style="height: 3.2rem;">Live</a></li>
+                <li><a href="#" class="btn-playlist" style="height: 3.2rem;">Chinese television dramas</a></li>
+                <li><a href="#" class="btn-playlist" style="height: 3.2rem;">Golden music</a></li>
+                <li><a href="#" class="btn-playlist" style="height: 3.2rem;">Seafood</a></li>
+                <li><a href="#" class="btn-playlist" style="height: 3.2rem;">Guzheng</a></li>
+                <li><a href="#" class="btn-playlist" style="height: 3.2rem;">Eating</a></li>
+                <li><a href="#" class="btn-playlist" style="height: 3.2rem;">Comedy</a></li>
+                <li><a href="#" class="btn-playlist" style="height: 3.2rem;">Tourism</a></li>
+                <li><a href="#" class="btn-playlist" style="height: 3.2rem;">Pop Music</a></li>
+                <li><a href="#" class="btn-playlist" style="height: 3.2rem;">Esports</a></li>
+                <li><a href="#" class="btn-playlist" style="height: 3.2rem;">Recently Uploaded</a></li>
+                <li class="absolute right-5 hidden lg:flex items-center group">
+                    <span class="bg-gradient-to-l from-white via-white to-transparent" style="height: 5.4rem; width: 5rem;"></span>
+                    <span class="flex justify-center items-center bg-white" style="width: 5.6rem; height: 5.4rem;">
+                        <a href="#" class="flex justify-center items-center rounded-full focus:bg-gray-200 p-2">
+                            <i class="material-icons">navigate_next</i>
+                        </a>
+                        <div class="tooltip -bottom-20">
+                            Next
+                        </div>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- content -->
+    <section class="section__content">
+        <!-- aside menu -->
+        <aside class="text-gray-800 hidden lg:flex lg:flex-col text-base pt-1 fixed" style="width: 7.2rem; height: calc(100vh - 5.6rem);">
+            <ul>
+                <li>
+                    <a href="#" class="btn-aside-menu" style="height: 7.4rem;">
+                        <i class="material-icons mb-2">home</i>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="btn-aside-menu" style="height: 7.4rem;">
+                        <i class="material-icons mb-2">explore</i>
+                        Explore
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="btn-aside-menu" style="height: 7.4rem;">
+                        <i class="material-icons mb-2">subscriptions</i>
+                        Subscriptions
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="btn-aside-menu" style="height: 7.4rem;">
+                        <i class="material-icons mb-2">video_library</i>
+                        Library
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="btn-aside-menu" style="height: 7.4rem;">
+                        <i class="material-icons mb-2">history</i>
+                        History
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- main content -->
+        <div class="content">
+            <!-- content: videos -->
+            <div class="pt-20">
+                <div class="video__group md:pt-5 lg:pt-10">
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava1.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="inline-flex items-center lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava1.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava3.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live active">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava4.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava5.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava6.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava7.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava2.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video__group">
+                    <div class="video__group-top-split">
+                        <h1 class="video__heading">Breaking News</h1>
+                    </div>
+
+                    <input class="hidden" type="radio" name="" id="breaking-news">
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava1.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava1.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- button to show more videos on tablet -->
+                    <label class="btn-show-more-tablet" for="breaking-news">
+                        <svg class="w-14 h-14 p-3 rounded-full focus:bg-gray-200 flex items-center" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </label>
+                    
+                    <div class="group cursor-pointer hidden lg:block video__show-more">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava3.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live active">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer hidden lg:block video__show-more">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava4.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- button to show more videos on laptop -->
+                    <label class="btn-show-more-lap" for="breaking-news">
+                            <svg class="w-14 h-14 p-3 rounded-full focus:bg-gray-200 flex items-center" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </label>
+
+                    <div class="group cursor-pointer hidden video__show-more">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava5.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live active">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer hidden video__show-more">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava6.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer hidden video__show-more">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava7.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live active">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer hidden video__show-more">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava8.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="video__group-bottom-split"></div>
+                </div>
+
+                <div class="video__group md:pt-10 lg:pt-20">
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava1.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava1.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava3.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live active">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava4.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video__group">
+                    <div class="video__group-top-split">
+                        <h1 class="video__heading">Trending</h1>
+                    </div>
+
+                    <input class="hidden" type="radio" name="" id="trending">
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava7.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava1.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- button to show more videos on tablet -->
+                    <label class="btn-show-more-tablet" for="trending">
+                        <svg class="w-14 h-14 p-3 rounded-full focus:bg-gray-200 flex items-center" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </label>
+                    
+                    <div class="group cursor-pointer hidden lg:block video__show-more">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava3.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live active">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer hidden lg:block video__show-more">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava4.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- button to show more videos on laptop -->
+                    <label class="btn-show-more-lap" for="trending">
+                            <svg class="w-14 h-14 p-3 rounded-full focus:bg-gray-200 flex items-center" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </label>
+
+                    <div class="group cursor-pointer hidden video__show-more">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava5.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live active">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer hidden video__show-more">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava6.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer hidden video__show-more">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava7.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live active">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer hidden video__show-more">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava8.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="video__group-bottom-split"></div>
+                </div>
+
+                <div class="video__group md:pt-10 lg:pt-20">
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava1.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava2.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava3.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live active">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava4.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava6.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava7.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live active">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava1.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava2.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava3.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live active">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava4.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava6.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava7.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live active">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava1.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava2.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava3.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live active">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative">
+                            <span class="video__duration">2:40</span>
+                            <video class="video__vid">
+                                <source src="images/vid.mp4" type="video/mp4">
+                            </video>
+                            <img class="w-full" src="images/vid.gif" alt="">
+                        </div>
+        
+                        <div class="video__info">
+                            <img class="video__avatar" src="images/ava4.jpg" alt="">
+                            <div>
+                                <h3 class="video__caption">Ad repellat accusamus enim ut odit aliquam nesciunt eaque nulla dignissimos nesciunt eaque nulla dignissimos</h3>
+                                <div class="video__author">
+                                    <span class="inline-flex lg:flex items-center">
+                                        <span class="line-clamp-1">Accusamus Enim Ut Accusamus Enim Ut</span>
+                                        <svg class="w-7 h-7 hidden lg:inline-flex mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                    <span class="lg:hidden">
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span class="inline-flex items-center">
+                                        10M views
+                                        <i class="material-icons ml-2 mr-1" style="font-size: 0.5rem;">lens</i>
+                                    </span>
+                                    <span>3 months ago</span>
+                                    <button type="submit" class="video__live">LIVE NOW</button>
+                                </div>
+                            </div>
+                            <a href="#" class="video__more">
+                                <svg class="w-8 h-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="lg:hidden grid grid-cols-3 fixed bottom-0 bg-white w-full z-20 border-t text-base" style="height: 4.8rem;">
+        <a href="#" class="col-auto flex flex-col items-center justify-center">
+            <i class="material-icons">home</i>
+            Home
+        </a>
+        <a href="#" class="col-auto flex flex-col items-center justify-center">
+            <i class="material-icons-outlined">local_fire_department</i>
+            Trending
+        </a>
+        <a href="#" class="col-auto flex flex-col items-center justify-center">
+            <i class="material-icons">video_library</i>
+            Library
+        </a>
+    </footer>
+
+</body>
+</html>

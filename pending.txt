@@ -1,0 +1,3 @@
+1/ styling for scrollbar on Firefox
+2/ scrolling function for video list on header
+3/ hide/unhide header on scroll for mobile & tablet viewports

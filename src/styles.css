@@ -1,0 +1,280 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+*{
+    padding: 0;
+    margin: 0;
+    outline: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: Roboto, Arial, sans-serif;
+}
+
+html{
+    font-size: 62.5%;
+    max-width: 100vw;
+}
+
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+body::-webkit-scrollbar{
+    width: 1.5rem;
+}
+
+body::-webkit-scrollbar-thumb{
+    border-radius: 1rem;
+    background-color: rgba(0,0,0,.5);
+    border: .4rem solid #fff;
+}
+
+/* buttons */
+.btn-rounded-full{
+    @apply h-16 w-16 rounded-full p-3 focus:bg-gray-200 flex items-center justify-center  transition ease-linear duration-100;
+}
+
+.btn-sign-in{
+    @apply inline-flex items-center border border-blue-500 text-blue-500 px-5 py-2 font-bold tracking-wider rounded cursor-pointer object-contain whitespace-nowrap;
+}
+
+.btn-aside-menu{
+    @apply flex flex-col py-4 justify-center items-center hover:bg-gray-100 focus:bg-gray-200;
+}
+
+.btn-playlist{
+    @apply flex items-center whitespace-nowrap px-5 bg-gray-100 border border-gray-300 shadow-inner rounded-full hover:bg-gray-200 mr-5;
+}
+
+.btn-playlist.active{
+    background-color: black;
+    color: white;
+}
+
+.btn-show-more-tablet{
+    @apply hidden md:flex md:col-span-2 lg:hidden justify-center items-center p-3 cursor-pointer hover:bg-gray-100 border-b-4 h-16;
+}
+
+.btn-show-more-lap{
+    @apply hidden lg:flex lg:col-span-4 justify-center items-center cursor-pointer hover:bg-gray-100 border-b-4 h-16;
+}
+
+/* tooltip */
+.tooltip{
+    @apply absolute z-20 bg-black bg-opacity-70 text-white px-5 py-3 rounded invisible group-hover:visible object-contain  whitespace-nowrap;
+}
+
+/* header */
+.header__navbar{
+    height: 5.6rem;
+}
+
+/* header: aside navbar */
+.aside-navbar__container::-webkit-scrollbar{
+    width: 1.5rem;
+}
+
+.aside-navbar__container:hover::-webkit-scrollbar-thumb{
+    border-radius: 1rem;
+    background-color: rgba(0,0,0,.5);
+    border: .4rem solid #fff;
+}
+
+.aside-navbar__list{
+    @apply flex flex-col py-4 border-b;
+}
+
+.aside-navbar__heading{
+    @apply px-10 py-3 font-bold;
+}
+
+.aside-navbar__item{
+    @apply flex items-center px-10 h-16 hover:bg-gray-100;
+}
+
+.aside-navbar__item.active{
+    @apply bg-gray-200 hover:bg-gray-300 font-bold;
+}
+
+#hamburger:checked ~ .header__navbar .aside-navbar{
+    left: 0;
+}
+
+#hamburger:checked ~ label .aside-navbar__overlay{
+    @apply w-full h-full bg-black opacity-50 fixed top-0 left-0 z-30;
+}
+
+#hamburger:focus ~ .aside-navbar__open{
+    @apply bg-gray-200;
+}
+
+/* header: voice search */
+#voice-search:checked ~ label .header__navbar--voice-search-overlay{
+    @apply w-full h-full bg-black opacity-50 fixed top-0 left-0 z-30;
+}
+
+#voice-search:checked ~ .header__navbar--voice-search{
+    display: flex;
+}
+
+/* header: tablet search */
+#tablet-search:checked ~ .header__navbar--tablet-search{
+    @apply bg-white w-full absolute top-0 z-30 flex justify-between items-center;
+}
+
+#tablet-search:checked ~ label .header__navbar--tablet-search-overlay{
+    @apply transition duration-500 ease-in-out w-full h-full bg-black opacity-70 fixed top-0 left-0 z-30;
+}
+
+/* header: tablet account */
+#tablet-account:checked ~ .header__navbar--tablet-account{
+    @apply block text-16r absolute top-0 z-40 bg-white w-screen h-screen;
+}
+
+/* header: YouTube app list */
+#apps:checked ~ .header__navbar .header__navbar--youtube-apps{
+    display: block;
+}
+
+#apps:checked ~ label .header__navbar--apps-overlay{
+    @apply w-full h-full bg-transparent fixed top-0 left-0 z-20;
+}
+
+/* header: YouTube settings */
+#settings:checked ~ .header__navbar .header__navbar--settings{
+    display: block;
+}
+
+#settings:checked ~ label .header__navbar--settings-overlay{
+    @apply w-full h-full bg-transparent fixed top-0 left-0 z-20;
+}
+
+/* header: playlist */
+.header__playlist{
+    height: 5.6rem;
+    width: calc(100vw - 7.2rem);
+    margin-left: 7.2rem;
+}
+
+.header__playlist-container{
+    scrollbar-width: none; /* for Firefox */
+}
+
+.header__playlist-container::-webkit-scrollbar{
+    display: none;
+}
+
+/* contents */
+.section__content{
+    padding-top: 5.6rem;
+}
+
+.content{
+    padding-left: 7.2rem;
+    width: 100vw;
+}
+
+/* content: video */
+.video__group{
+    @apply bg-gray-50 grid md:grid-cols-2 md:gap-5 lg:grid-cols-4 lg:gap-7 md:px-5 lg:px-10 w-full;
+}
+
+.video__group-top-split{
+    @apply hidden md:grid md:col-span-2 lg:col-span-4;
+}
+
+.video__group-bottom-split{
+    @apply hidden md:col-span-2 lg:col-span-4 h-px border-b-4;
+}
+
+.video__heading{
+    @apply border-t-4 px-4 pt-8 pb-2 font-bold text-3xl text-gray-700;
+}
+
+.video__duration{
+    @apply absolute right-0 bottom-0 mr-3 mb-3 px-3 py-0.5 rounded-md bg-gray-700 text-12r text-white font-bold z-10;
+}
+
+.video__vid{
+    @apply absolute w-full opacity-100 group-hover:opacity-0;
+}
+
+.video__info{
+    @apply pt-5 pr-14 mb-8 flex relative;
+}
+
+.video__avatar{
+    @apply rounded-full h-14 w-14 ml-3 mr-3 lg:ml-0 object-cover;
+}
+
+.video__caption{
+    @apply text-gray-700 lg:text-16r font-bold leading-8 line-clamp-2;
+}
+
+.video__author{
+    @apply mt-2 text-12r lg:text-14r leading-7;
+}
+
+.video__live{
+    @apply hidden md:flex opacity-0 border border-red-600 rounded px-2 py-1 text-red-600 font-bold mt-2;
+}
+
+.video__live.active{
+    opacity: 100%;
+}
+
+.video__more{
+    @apply lg:opacity-0 group-hover:opacity-100 absolute right-0 lg:-right-4 h-14 w-14 p-2 flex justify-center items-center rounded-full active:bg-gray-200;
+}
+
+#breaking-news:checked ~ .video__show-more,
+#trending:checked ~ .video__show-more{
+    display: block;
+}
+
+#breaking-news:checked ~ .video__group-bottom-split,
+#trending:checked ~ .video__group-bottom-split{
+    display: grid;
+}
+
+#breaking-news:checked ~ label,
+#trending:checked ~ label{
+    display: none;
+}
+
+/* media queries */
+@media only screen and (max-width:450px){
+}
+
+@media only screen and (max-width:768px){
+    body{
+        scrollbar-width: none;
+    }
+
+    body::-webkit-scrollbar{
+        display: none;
+    }
+
+    .header__navbar{
+        height: 4.8rem;
+    }
+    
+    .header__playlist{
+        height: 4.8rem;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .section__content{
+        padding-top: 4.8rem;
+    }
+
+    .content{
+        padding-left: 0;
+    }
+}
+
+@media only screen and (max-width:1280px){
+}
